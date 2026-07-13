@@ -1059,7 +1059,7 @@
               Puedes escribir para participar, proponer una colaboración u organizar una actividad en un casal, centro educativo o espacio juvenil.
             </p>
 </div>
-<form class="contact-form" id="contactForm">
+<form action="https://api.web3forms.com/submit" class="contact-form" id="contactForm" method="POST"><input name="access_key" type="hidden" value="PEGA_AQUI_TU_ACCESS_KEY"/><input name="subject" type="hidden" value="Nuevo mensaje desde la web de Tableria"/><input name="from_name" type="hidden" value="Web de Tableria"/><input class="hidden" name="botcheck" style="display:none" type="checkbox"/>
 <div class="field">
 <label data-i18n="contact.nameLabel" for="name">Nombre</label>
 <input id="name" name="name" required="" type="text"/>
@@ -1070,7 +1070,7 @@
 </div>
 <div class="field field-full">
 <label data-i18n="contact.subjectLabel" for="subject">Asunto</label>
-<input id="subject" name="subject" required="" type="text"/>
+<input id="subject" name="asunto" required="" type="text"/>
 </div>
 <div class="field field-full">
 <label data-i18n="contact.messageLabel" for="message">Mensaje</label>
@@ -1080,7 +1080,7 @@
 <button class="button button-primary" data-i18n="contact.button" type="submit">Enviar mensaje</button>
 </div>
 <p class="form-note" data-i18n="contact.note">
-              El formulario es una demostración visual. Para recibir mensajes será necesario conectarlo a un servicio de formularios o a un servidor.
+              Al enviar este formulario, el mensaje llegará al correo asociado a Web3Forms.
             </p>
 </form>
 </div>
@@ -1177,7 +1177,7 @@
         "contact.subjectLabel": "Asunto",
         "contact.messageLabel": "Mensaje",
         "contact.button": "Enviar mensaje",
-        "contact.note": "El formulario es una demostración visual. Para recibir mensajes será necesario conectarlo a un servicio de formularios o a un servidor.",
+        "contact.note": "Al enviar este formulario, el mensaje llegará al correo asociado a Web3Forms.",
 
         "footer.text": "Club de rol y juegos de mesa para jóvenes y familias."
       },
@@ -1264,7 +1264,7 @@
         "contact.subjectLabel": "Assumpte",
         "contact.messageLabel": "Missatge",
         "contact.button": "Enviar missatge",
-        "contact.note": "El formulari és una demostració visual. Per a rebre missatges caldrà connectar-lo a un servici de formularis o a un servidor.",
+        "contact.note": "En enviar este formulari, el missatge arribarà al correu associat a Web3Forms.",
 
         "footer.text": "Club de rol i jocs de taula per a jóvens i famílies."
       }
@@ -1311,17 +1311,6 @@
         mainNav.classList.remove("open");
         menuButton.setAttribute("aria-expanded", "false");
       });
-    });
-
-    contactForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      const language = languageSelector.value;
-      const message = language === "va"
-        ? "El formulari encara no està connectat a un servici d'enviament."
-        : "El formulario todavía no está conectado a un servicio de envío.";
-
-      alert(message);
     });
 
     const savedLanguage = localStorage.getItem("tableria-language") || "es";
